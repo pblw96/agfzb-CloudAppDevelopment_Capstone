@@ -1,23 +1,20 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <head>
-        <meta charset="UTF-8">
-        <title>Dealership Review - Contact</title>
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-        <link href="https://unpkg.com/bootstrap-table@1.18.2/dist/bootstrap-table.min.css" rel="stylesheet">
-        <script src="https://unpkg.com/bootstrap-table@1.18.2/dist/bootstrap-table.min.js"></script>
-        <script src="https://unpkg.com/bootstrap-table@1.18.2/dist/extensions/filter-control/bootstrap-table-filter-control.min.js"></script>
-    
-    </head>
-    
-</head>
-<body>
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mt-5 ml-5">
     <h1>Contact Us</h1>
-    <h2>address</h2>
-    <h2>phone number</h2>
-</body>
-</html>
+    <dl class="row">
+        <dt class="col-sm-3">Address</dt>
+        <dd class="col-sm-9">22 Upper Avenue, OL Mars</dd>
+    </dl>
+    <dl class="row">
+        <dt class="col-sm-3">Phone Number</dt>
+        <dd class="col-sm-9"><a href="tel: 987-654-3210">987-654-3210</a></dd>
+    </dl>
+    <dl class="row">
+        <dt class="col-sm-3">Email</dt>
+        <dd class="col-sm-9"><a href="mailto:contact@bestcars.com">contact@bestcars.com</a></dd>
+    </dl>
+</div>
+{% endblock content %}
+
