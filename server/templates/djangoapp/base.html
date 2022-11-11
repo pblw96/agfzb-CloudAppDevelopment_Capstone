@@ -15,18 +15,43 @@
 </head>
 
     <body>
-    <nav class="navbar navbar-light bg-light">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="{% url 'djangoapp:index' %}">Best Cars</a>
-            <ul class="nav navbar-nav">
-               <li>
-                   <a href="{% url 'djangoapp:about' %}" class="btn btn-link">About</a>
-                   <a href="{% url 'djangoapp:contact' %}" class="btn btn-link">Contact</a>
-               </li>
-            </ul>
-        </div>
-    </nav>
+        <nav class="navbar navbar-expand-sm navbar-light bg-light">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a class="navbar-brand mb-0 h1" href="{% url 'djangoapp:index' %}">Best Cars</a>
+                </div>
+                <ul class="navbar-nav nav">
+                  <li class="nav-item">
+                    <a class="nav-link {% if nbar == 'about' %}active{% endif %}" href="{% url 'djangoapp:about' %}">About</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link {% if nbar == 'contact' %}active{% endif %}" href="{% url 'djangoapp:contact' %}">Contact</a>
+                  </li>
+                  <li class="nav-item">
+                    {% if request.user.is_authenticated %}
 
+                        <li>
+                            <a class="btn btn-link" href="#">{{ user.first_name }}({{ user.username }})</a>
+                            <a class="btn btn-link" href="{% url 'djangoapp:logout' %}">Logout</a>
+                        </li>
+
+                    {% else %}
+                    
+                        <form class="form-inline" action="{% url 'djangoapp:login' %}" method="post">
+                            {% csrf_token %}
+                            <div class="input-group">
+                                <input type="text" class="form-control danger" placeholder="Username" name="username" >
+                                <input type="password" class="form-control" placeholder="Password" name="psw" >
+                                <button class="btn btn-primary" type="submit">Login</button>
+                                <a class="btn btn-link" href="{% url 'djangoapp:registration' %}">Sign Up</a>
+                            </div>
+                        </form>
+
+                    {% endif %}
+                </li>
+                </ul>
+            </div>
+          </nav>
     {% block content%}
     {% endblock %}
 
