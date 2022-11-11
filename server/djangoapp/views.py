@@ -61,8 +61,8 @@ def registration_request(request):
     elif request.method == 'POST':
         username = request.POST.get('username')
         password = request.POST.get('psw')
-        first_name = request.POST.get('first_name')
-        last_name = request.POST.get('last_name')
+        first_name = request.POST.get('firstname')
+        last_name = request.POST.get('lastname')
         user_exist = False
         try:
             User.objects.get(username = username)
