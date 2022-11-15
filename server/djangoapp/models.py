@@ -58,6 +58,8 @@ class CarModel(models.Model):
   seats = models.IntegerField()
   horse_power = models.IntegerField()
   drive_type = models.CharField(max_length=20, choices=DriveType.choices, default=DriveType.FRONT_WEELD_DRIVE)
+  price = models.CharField(max_length=20)
+
 
   def __str__(self):
     return (self.name)
